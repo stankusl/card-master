@@ -5,15 +5,34 @@
         $rootScope.pageTitle = 'Home';
 
         self.cards = {};
-        //GameServices.getCards();
-      //  console.log(GameServices.getCards());
+
+        self.processData = function(rawArray) {
+          var result = {};
+
+          angular.forEach(rawArray, function(value, key) {
+              var card;
+
+              if (value != 'B' && value != 'R') {
+                card = value.split("-");
+                result[key] = { "rank" : card[0], "type" : card[1] };
+              } else {
+                result[key] = { "rank" : value, "type" : 'J' }
+              }
+          });
+
+          return result;
+        }
+
         GameServices.getCards().then(
-            function(result) {
-                self.cards = result;
-            },
-            function(err) {
-                console.log('Error retrieving from endpoint: ', err);
-            });
+          function(result) {
+              var processed = self.processData(result);
+              console.log(processed);
+              self.cards = processed;
+          },
+          function(err) {
+              console.log('Error retrieving from endpoint: ', err);
+          }
+        );
 
 
     });
