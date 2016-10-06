@@ -15,7 +15,7 @@
     }])
 
     .config(['$httpProvider', function($httpProvider) {
-        //initialize get if not there
+
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
         if (!$httpProvider.defaults.headers.get) {

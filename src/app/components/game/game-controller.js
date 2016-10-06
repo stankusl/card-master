@@ -5,11 +5,15 @@
         $rootScope.pageTitle = 'Home';
 
         self.cards = {};
-
-        GameServices.getCards().then(function(data) {
-          self.cards = data;
-        });
-
+        //GameServices.getCards();
+      //  console.log(GameServices.getCards());
+        GameServices.getCards().then(
+            function(result) {
+                self.cards = result;
+            },
+            function(err) {
+                console.log('Error retrieving from endpoint: ', err);
+            });
 
 
     });
