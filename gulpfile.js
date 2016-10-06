@@ -70,7 +70,7 @@ var config = {
     files: ['./build/**/*'],
     tunnel: false,
     host: 'localhost',
-    port: 333,
+    port: 888,
     notify: false,
     logPrefix: "frontend",
     watchTask: true

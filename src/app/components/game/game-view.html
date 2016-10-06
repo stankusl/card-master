@@ -1,21 +1,36 @@
 <div class="container">
   <div class="col-xs-12">
-      <!-- <pre>
-        {{ Game.cards }}
-      </pre> -->
-
-
       <h1>Card game</h1>
   </div>
 
-  <div class="row cards">
+  <div ng-repeat="card in Game.cards" class="col-xs-2">
+    <section class="card-holder">
+      <div class="card">
+        <figure class="front">
+          <span class="{{ card.type }}">
+            {{ (card.type == 'D') ? '&diams;' : (card.type == 'S') ? '&spades;' : (card.type == 'C') ? '&clubs;' : (card.type == 'H') ? '&hearts;' : null }}
+          </span>
+          <span class="rank-1 {{ card.type }}">
+            {{ card.rank }}
+          </span>
+          <span class="rank-2 {{ card.type }}">
+            {{ card.rank }}
+          </span>
+          </figure>
+        <figure class="back"></figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- <div class="row cards">
 
     <div ng-repeat="card in Game.cards" class="col-xs-2">
       <div class="card-container">
         <div class="card-inner">
 
           <div class="card-front">
-              {{ card.rank }}  - {{ card.type }}
+              <span class="rank {{ card.rank }}">{{ card.rank }}&spades;</span>
+            - {{ card.type }}
           </div>
 
           <div class="card-back">
@@ -26,6 +41,6 @@
       </div>
 
      </div>
-  </div>
+  </div> -->
 
 </div>
