@@ -26,7 +26,6 @@
         GameServices.getCards().then(
           function(result) {
               var processed = self.processData(result);
-              console.log(processed);
               self.cards = processed;
           },
           function(err) {

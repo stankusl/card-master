@@ -4,7 +4,7 @@
     angular.module('application').factory('GameServices', ['$http', '$q', '$log', '$rootScope', GameServices]);
 
     function GameServices($http, $q, $log, $rootScope) {
-        console.log('works!');
+
         // Retrieving available Cards
         var endpoint = 'http://188.166.154.233/public/cards/all';
 

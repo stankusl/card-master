@@ -1,4 +1,4 @@
-# Interactive Investor
+# Card Game
 
 ### Preacquisitions
 * NodeJS : http://nodejs.org
