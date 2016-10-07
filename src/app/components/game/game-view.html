@@ -1,6 +1,14 @@
 <div class="container">
   <div class="col-xs-12">
       <h1>Card game</h1>
+      <p>Filters:</p>
+      <select name="filterBySuite" ng-model="Game.filterSuit">
+          <option value="All">All</option>
+          <option value="D">Diamonds</option>
+          <option value="S">Spades</option>
+          <option value="C">Clubs</option>
+          <option value="H">Hearts</option>
+      </select>
   </div>
 
   <div ng-repeat="card in Game.cards" class="col-xs-2">
@@ -9,12 +17,15 @@
         <figure class="front">
           <span class="{{ card.type }}">
             {{ (card.type == 'D') ? '&diams;' : (card.type == 'S') ? '&spades;' : (card.type == 'C') ? '&clubs;' : (card.type == 'H') ? '&hearts;' : null }}
+
+            <!-- {{ ( card.type = 'B' ) ? 'Joker' : null }} -->
           </span>
           <span class="rank-1 {{ card.type }}">
             {{ card.rank }}
           </span>
           <span class="rank-2 {{ card.type }}">
             {{ card.rank }}
+
           </span>
           </figure>
         <figure class="back"></figure>

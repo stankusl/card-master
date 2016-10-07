@@ -5,6 +5,8 @@
         $rootScope.pageTitle = 'Home';
 
         self.cards = {};
+        self.filterSuit = 'All';
+
 
         self.processData = function(rawArray) {
           var result = {};
