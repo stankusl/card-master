@@ -1,18 +1,50 @@
 <div class="container">
+  <pre>
+    {{ Game.filterSuit }}
+    {{ Game.filterValue }}
+  </pre>
   <div class="col-xs-12">
       <h1>Card game</h1>
       <button class="btn btn-primary" ng-click="Game.suffleDeck()">Suffle Deck</button>
       <p>Filters:</p>
-      <select name="filterBySuite" ng-model="Game.filterSuit">
-          <option value="All">All</option>
-          <option value="D">Diamonds</option>
-          <option value="S">Spades</option>
-          <option value="C">Clubs</option>
-          <option value="H">Hearts</option>
-      </select>
+
+
+      <div class="row">
+
+          <div class="col-xs-6">
+              <select class="form-control" name="filterBySuite" ng-model="Game.filterSuit">
+                  <option value="*">All</option>
+                  <option value="D">Diamonds</option>
+                  <option value="S">Spades</option>
+                  <option value="C">Clubs</option>
+                  <option value="H">Hearts</option>
+              </select>
+          </div>
+
+          <div class="col-xs-6">
+            <select class="form-control" name="filterByValue" ng-model="Game.filterValue">
+                <option value="*">All</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="J">Jack</option>
+                <option value="Q">Qeen</option>
+                <option value="K">King</option>
+                <option value="A">Ace</option>
+            </select>
+          </div>
+
+        </div>
   </div>
 
-  <div ng-repeat="card in Game.cards" class="col-xs-2">
+  <div ng-repeat="card in Game.cards" ng-if="(Game.filterValue != '*') ? (Game.filterValue == card.rank) : true">
+  <div class="col-xs-2" ng-if="(Game.filterSuit != '*') ? (Game.filterSuit == card.type) : true">
     <section class="card-holder">
       <div class="card">
         <figure class="front">
@@ -33,26 +65,7 @@
       </div>
     </section>
   </div>
+  </div>
 
-  <!-- <div class="row cards">
-
-    <div ng-repeat="card in Game.cards" class="col-xs-2">
-      <div class="card-container">
-        <div class="card-inner">
-
-          <div class="card-front">
-              <span class="rank {{ card.rank }}">{{ card.rank }}&spades;</span>
-            - {{ card.type }}
-          </div>
-
-          <div class="card-back">
-
-          </div>
-
-        </div>
-      </div>
-
-     </div>
-  </div> -->
 
 </div>

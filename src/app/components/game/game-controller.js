@@ -5,7 +5,8 @@
         $rootScope.pageTitle = 'Home';
 
         self.cards = {};
-        self.filterSuit = 'All';
+        self.filterSuit = '*';
+        self.filterValue = '*';
 
         self.suffleDeck = function () {
 

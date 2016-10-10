@@ -1,7 +1,7 @@
 # Card Game
 
 ### Preacquisitions
-* NodeJS : http://nodejs.org
+* NodeJS v4.x: http://nodejs.org
 * bower
 * gulp
 
