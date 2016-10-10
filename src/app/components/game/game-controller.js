@@ -7,6 +7,19 @@
         self.cards = {};
         self.filterSuit = 'All';
 
+        self.suffleDeck = function () {
+
+          GameServices.getSuffledCards().then(
+            function(result) {
+                var processed = self.processData(result);
+                console.log(processed);
+                self.cards = processed;
+            },
+            function(err) {
+                console.log('Error retrieving from endpoint: ', err);
+            }
+          );
+        }
 
         self.processData = function(rawArray) {
           var result = {};
