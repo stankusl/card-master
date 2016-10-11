@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('application', ['ui.bootstrap', 'ui.router'])
+    angular.module('application', ['ui.bootstrap', 'ui.router', 'rzModule'])
 
     .run(['$rootScope', '$state', function($rootScope, $state) {
 
