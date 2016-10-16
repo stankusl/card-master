@@ -1,34 +1,31 @@
 <div class="container">
-  <pre>
+    <!-- <pre>
     {{ Game.filterSuit }}
     {{ Game.filterValue }}
-  </pre>
-  <div class="col-xs-12">
-      <h1>Card game</h1>
-      <button class="btn btn-primary" ng-click="Game.suffleDeck()">Suffle Deck</button>
-      <p>Range Filters</p>
+  </pre> -->
+    <div class="col-xs-12">
+        <h1>Card game</h1>
+        <button class="btn btn-primary" ng-click="Game.suffleDeck()">Suffle Deck</button>
+        <!-- <p>Range Filters</p>
 
-      <rzslider rz-slider-model="slider.minValue"
-          rz-slider-high="slider.maxValue"
-          rz-slider-options="slider.options"></rzslider>
+        <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider> -->
 
-      <p>Filters:</p>
+        <p>Filters:</p>
 
+        <div class="row">
 
-      <div class="row">
-
-          <div class="col-xs-6">
-              <select class="form-control" name="filterBySuite" ng-model="Game.filterSuit">
+            <div class="col-xs-6">
+                <select class="form-control" name="filterBySuite" ng-model="Game.filterSuit">
                   <option value="*">All</option>
                   <option value="D">Diamonds</option>
                   <option value="S">Spades</option>
                   <option value="C">Clubs</option>
                   <option value="H">Hearts</option>
               </select>
-          </div>
+            </div>
 
-          <div class="col-xs-6">
-            <select class="form-control" name="filterByValue" ng-model="Game.filterValue">
+            <div class="col-xs-6">
+                <select class="form-control" name="filterByValue" ng-model="Game.filterValue">
                 <option value="*">All</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -44,34 +41,42 @@
                 <option value="K">King</option>
                 <option value="A">Ace</option>
             </select>
-          </div>
-
+            </div>
         </div>
-  </div>
+    </div>
 
-  <div ng-repeat="card in Game.cards" ng-if="(Game.filterValue != '*') ? (Game.filterValue == card.rank) : true">
-  <div class="col-xs-2" ng-if="(Game.filterSuit != '*') ? (Game.filterSuit == card.type) : true">
-    <section class="card-holder">
-      <div class="card">
-        <figure class="front">
-          <span class="{{ card.type }}">
-            {{ (card.type == 'D') ? '&diams;' : (card.type == 'S') ? '&spades;' : (card.type == 'C') ? '&clubs;' : (card.type == 'H') ? '&hearts;' : null }}
+    <div class="clearfix"></div>
 
-            <!-- {{ ( card.type = 'B' ) ? 'Joker' : null }} -->
-          </span>
-          <span class="rank-1 {{ card.type }}">
-            {{ card.rank }}
-          </span>
-          <span class="rank-2 {{ card.type }}">
-            {{ card.rank }}
+    <br>
 
-          </span>
-          </figure>
-        <figure class="back"></figure>
-      </div>
-    </section>
-  </div>
-  </div>
+    <div ng-repeat="card in Game.cards track by $index">
+        <div class="col-xs-2">
+            <section class="card-holder">
+                <div class="blocked" ng-if="(Game.filterValue != '*') ? (Game.filterValue == card.rank) : false"></div>
+                <div class="blocked" ng-if="(Game.filterSuit != '*') ? (Game.filterSuit == card.type) : false"></div>
+
+                <div class="card {{ Game.cards[$index].enabled ? 'turn' : null }}" ng-click="Game.cardSwitch($index)"  class="">
+
+                    <figure class="front">
+                        <span class="{{ card.type }}">
+                          {{ (card.type == 'D') ? '&diams;' : (card.type == 'S') ? '&spades;' : (card.type == 'C') ? '&clubs;' : (card.type == 'H') ? '&hearts;' : null }}
+                          <!-- {{ ( card.type = 'B' ) ? 'Joker' : null }} -->
+                        </span>
+
+                        <span class="rank-1 {{ card.type }}">
+                          {{ card.rank }}
+                        </span>
+
+                        <span class="rank-2 {{ card.type }}">
+                          {{ card.rank }}
+                        </span>
+
+                    </figure>
+                    <figure class="back"></figure>
+                </div>
+            </section>
+        </div>
+    </div>
 
 
 </div>

@@ -7,12 +7,12 @@
 
         $stateProvider
 
-        .state('game', {
-            url: '/',
-            templateUrl: './app/components/game/game-view.html',
-            controller: 'GameController',
-            controllerAs: 'Game'
-        })
+            .state('game', {
+                url: '/',
+                templateUrl: './app/components/game/game-view.html',
+                controller: 'GameController',
+                controllerAs: 'Game'
+            })
 
         $urlRouterProvider.otherwise('/');
     }]);

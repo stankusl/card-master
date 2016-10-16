@@ -15,33 +15,39 @@
 
         //getCards
         function getCards() {
-          var deferred = $q.defer();
+            var deferred = $q.defer();
 
-          $http({ method: "GET", url: endpoint  + 'all'})
-          .then(function(response) {
-              deferred.resolve(response.data);
-          })
-          .catch(function(response) {
-              $log.error('Error retrieving Clients: ' + response.statusText);
-              return $q.reject('Error retrieving Clients.');
-          });
-          
-          return deferred.promise;
+            $http({
+                    method: "GET",
+                    url: endpoint + 'all'
+                })
+                .then(function(response) {
+                    deferred.resolve(response.data);
+                })
+                .catch(function(response) {
+                    $log.error('Error retrieving Clients: ' + response.statusText);
+                    return $q.reject('Error retrieving Clients.');
+                });
+
+            return deferred.promise;
         }
 
-      //  getCardsRandom
+        //  getCardsRandom
         function getSuffledCards() {
-          var deferred = $q.defer();
+            var deferred = $q.defer();
 
-          $http({ method: "GET", url: endpoint  + 'random'})
-          .then(function(response) {
-              deferred.resolve(response.data);
-          })
-          .catch(function(response) {
-              $log.error('Error retrieving Clients: ' + response.statusText);
-              return $q.reject('Error retrieving Clients.');
-          });
-          return deferred.promise;
+            $http({
+                    method: "GET",
+                    url: endpoint + 'random'
+                })
+                .then(function(response) {
+                    deferred.resolve(response.data);
+                })
+                .catch(function(response) {
+                    $log.error('Error retrieving Clients: ' + response.statusText);
+                    return $q.reject('Error retrieving Clients.');
+                });
+            return deferred.promise;
         };
 
     };
