@@ -10,10 +10,8 @@ body {
     width: 150px;
     height: 250px;
     z-index: 1;
+    transform: rotateY( 180deg );
 
-    &:hover > .card-inner {
-        transform: rotateY(180deg);
-    }
 
     .card-inner {
         width: 150px;
@@ -80,9 +78,14 @@ body {
     transition: transform 1s;
     cursor: pointer;
 
+      transform: rotateY( 180deg );
     &.turn {
-        transform: rotateY( 180deg );
+      transform: rotateY( 0deg );
     }
+ // &:hover > .card-inner {
+ //     transform: rotateY(180deg);
+ // }
+
 
     figure {
         margin: 0;

@@ -23,7 +23,7 @@
             GameServices.getSuffledCards().then(
                 function(result) {
                     var processed = self.processData(result);
-                    console.log(processed);
+                    // console.log(processed);
                     self.cards = processed;
                 },
                 function(err) {
@@ -33,8 +33,16 @@
         }
 
         self.cardSwitch = function(index) {
-          self.cards[index].enabled = true;      
-          console.log( self.cards[index]);
+          // self.cards[index].enabled = true;
+          // Turn all cards back
+          angular.forEach(self.cards, function( card, index) {
+            self.cards[index].enabled = false;
+          });
+
+          // Enable clicked card
+          self.cards[index].enabled = true;
+
+
         }
 
         self.processData = function(rawArray) {
