@@ -1,8 +1,5 @@
 <div class="container">
-    <!-- <pre>
-    {{ Game.filterSuit }}
-    {{ Game.filterValue }}
-  </pre> -->
+    <h1>You are observer</h1>
     <div class="col-xs-12">
         <h1>Card game</h1>
         <button class="btn btn-primary" ng-click="Game.suffleDeck()">Suffle Deck</button>
@@ -15,7 +12,7 @@
         <div class="row">
 
             <div class="col-xs-6">
-                <select class="form-control" name="filterBySuite" ng-model="Game.filterSuit">
+                <select class="form-control" disabled name="filterBySuite" ng-model="Game.filterSuit">
                   <option value="*">All</option>
                   <option value="D">Diamonds</option>
                   <option value="S">Spades</option>
@@ -25,7 +22,7 @@
             </div>
 
             <div class="col-xs-6">
-                <select class="form-control" name="filterByValue" ng-model="Game.filterValue">
+                <select class="form-control" disabled name="filterByValue" ng-model="Game.filterValue">
                 <option value="*">All</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -55,7 +52,7 @@
                 <div class="blocked" ng-if="(Game.filterValue != '*') ? (Game.filterValue == card.rank) : false"></div>
                 <div class="blocked" ng-if="(Game.filterSuit != '*') ? (Game.filterSuit == card.type) : false"></div>
 
-                <div class="card {{ Game.cards[$index].enabled ? 'turn' : null }}" ng-click="Game.cardSwitch($index)"  class="">
+                <div class="card {{ Game.cards[$index].enabled ? 'turn' : null }}">
 
                     <figure class="front">
                         <span class="{{ card.type }}">

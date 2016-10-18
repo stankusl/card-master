@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('application', ['ui.bootstrap', 'ui.router', 'rzModule'])
+    angular.module('application', ['ui.bootstrap', 'btford.socket-io', 'ui.router', 'rzModule'])
 
     .run(['$rootScope', '$state', function($rootScope, $state) {
 
@@ -9,6 +9,12 @@
         // make $state available from templates
         $rootScope.$state = $state;
     }])
+
+    .factory('mySocket', function (socketFactory) {
+      var mySocket = socketFactory();
+      mySocket.forward('error');
+      return mySocket;
+    })
 
     .config(['$locationProvider', function($locationProvider) {
         $locationProvider.html5Mode(true);

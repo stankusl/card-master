@@ -14,6 +14,13 @@
                 controllerAs: 'Game'
             })
 
+            .state('observer', {
+                url: '/observer',
+                templateUrl: './app/components/game/game-observer-view.html',
+                controller: 'GameController',
+                controllerAs: 'Game'
+            })
+
         $urlRouterProvider.otherwise('/');
     }]);
 
